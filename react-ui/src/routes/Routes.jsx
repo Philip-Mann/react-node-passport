@@ -2,6 +2,7 @@ import { Route } from "react-router-dom";
 import Greeting from "../components/home/Greeting";
 import Login from "../components/login/Login";
 import Profile from "../components/profile/Profile";
+import ProfileById from "../components/profileById/ProfileById";
 
 
 
@@ -18,6 +19,11 @@ const Routes = () => {
                 exact
                 path="/profile"
                 render={() => <Profile />}
+            />
+            <Route
+                exact
+                path="/profile/:id"
+                render={() => <ProfileById />}
             />
             <Route
                 exact

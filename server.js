@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
+const { Users } = require('./models');
 const { PORT } = process.env;
 
 
@@ -25,6 +26,11 @@ server.use(passport.session());
 server.use(express.static(path.resolve(__dirname + '/react-ui/build')));
 server.use(express.json());
 
+server.get('/api/profile', async (req, res) => {
+    const users = await Users.findAll();
+    res.json(users);
+});
+
 server.get(`/api/profile:id`, async (req, res) => {
     const profileInfo = await Users.findOne({
         where: {
@@ -34,7 +40,7 @@ server.get(`/api/profile:id`, async (req, res) => {
     res.json(profileInfo);
 });
 
-const auth = require('./auth');
+const auth = require('./auth/google.js');
 server.use('/auth', auth);
 
 server.get('*', function (req, res) {
