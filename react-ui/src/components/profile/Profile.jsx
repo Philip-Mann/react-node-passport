@@ -3,7 +3,9 @@ import './profile.css';
 const Profile = () => {
 
     return (
-        <h1>Hello from Profile</h1>
+        <div className="profile-container">
+            <h1>Profile Information</h1>
+        </div>
     )
 }
 

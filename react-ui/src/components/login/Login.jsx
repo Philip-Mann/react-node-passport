@@ -3,7 +3,9 @@ import './login.css';
 const Login = () => {
 
     return (
-        <h1>Logging in...</h1>
+        <div className="login-container">
+            <h1>Logging in...</h1>
+        </div>
     )
 }
 
