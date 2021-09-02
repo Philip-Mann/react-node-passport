@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const { Users } = require('../models');
 
 const router = express.Router();
 
@@ -16,7 +17,10 @@ passport.use(new GoogleStrategy({
       where: {
         loginStrategy: profile.provider,
         loginStrategyId: profile.id,
-        firstName: profile.displayName
+        fullName: profile.displayName,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        imageUrl: profile.photos[0].value
       }
     });
   
