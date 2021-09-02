@@ -1,10 +1,11 @@
+import GoogleButton from './google-login/GoogleButton';
 import './login.css';
 
 const Login = () => {
 
     return (
         <div className="login-container">
-            <h1>Logging in...</h1>
+            <GoogleButton />
         </div>
     )
 }
