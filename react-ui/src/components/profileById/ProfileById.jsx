@@ -10,7 +10,12 @@ const ProfileById = () => {
 
     useEffect(() => {
         const fetchProfileInfo = (id) => {
-            fetch(`/api/profile/${id}`)
+            fetch(`/api/profile/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
                 .then(res => res.json())
                 .then(profileData => {
                     setProfileData(profileData);
