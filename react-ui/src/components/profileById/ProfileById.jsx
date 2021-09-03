@@ -1,3 +1,4 @@
+import './profileById.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -5,20 +6,23 @@ const ProfileById = () => {
 
     const { id } = useParams();
 
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [profileData, setProfileData] = useState([]);
 
     useEffect(() => {
         const fetchProfileInfo = (id) => {
+            setIsLoading(true)
             fetch(`/api/profile/${id}`, {
                 method: 'GET',
                 headers: {
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             })
                 .then(res => res.json())
                 .then(profileData => {
                     setProfileData(profileData);
+                    console.log(profileData);
                     setIsLoading(false);
                 });
         }

@@ -1,0 +1,10 @@
+.profile-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.profile-container img {
+    width: 10rem;
+}

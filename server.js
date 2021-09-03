@@ -31,12 +31,13 @@ server.get('/api/profile', async (req, res) => {
     res.json(users);
 });
 
-server.get(`/api/profile:id`, async (req, res) => {
+server.get(`/api/profile/:id`, async (req, res) => {
     const profileInfo = await Users.findOne({
         where: {
             loginStrategyId: req.params.id
         }
     });
+    console.log(profileInfo);
     res.json(profileInfo);
 });
 
