@@ -50,3 +50,5 @@ server.get('*', function (req, res) {
 server.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
+
+// Uncaught (in promise) SyntaxError: Unexpected token < in JSON at position 0
